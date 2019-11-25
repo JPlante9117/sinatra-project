@@ -1,0 +1,36 @@
+<h1>All Known Pokémon</h1>
+<table id="allpokes">
+    <tr>
+        <th>
+            Pokémon I.D.
+        </th>
+        <th>
+            Pokémon Species
+        </th>
+        <th colspan="2">
+            Type(s)
+        </th>
+    </tr>
+<% Pokemon.all.each do |poke|%>
+    <tr>
+        <td>
+            <%= poke.id %>
+        </td>
+        <td>
+            <a href='/pokemon/<%=poke.slug%>'><%=poke.species%><br><br>
+        </td>
+        <% if poke.type2 != "None"%>
+            <td>
+                <%= poke.type1 %>
+            </td>
+            <td>
+                <%= poke.type2 %>
+            </td>
+        <% else %>
+            <td colspan='2'>
+                <%= poke.type1 %>
+            </td>
+        <% end %>
+    </tr>
+<%end%>
+</table>

@@ -1,0 +1,28 @@
+<h1><%=@pokemon.species%></h1>
+<h2>
+    Primary Type: <%= @pokemon.type1 %>
+    <%if @pokemon.type2 != "None" && @pokemon.type1 != @pokemon.type2%>
+        <br>Secondary Type: <%= @pokemon.type2 %>
+    <% end %>
+</h2>
+<h3>Here is a list of all entries for this Pokémon!
+<table>
+    <tr>
+        <th>
+            Entry
+        </th>
+        <th>
+            Author
+        </th>
+    </tr>
+    <% @pokemon.entries.each do |entry| %>
+        <tr>
+        <td>
+            <a href='/entries/<%= entry.id %>'>Entry #<%= entry.id %></a>
+        </td>
+        <td>
+            <a href='/assistants/<%= entry.assistant.slug %>'><%= entry.assistant.name %></a>
+        </td>
+        </tr>
+    <% end %>
+</table></h3>

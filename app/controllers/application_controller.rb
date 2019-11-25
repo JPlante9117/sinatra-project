@@ -25,6 +25,10 @@ class ApplicationController < Sinatra::Base
       @current_user ||= Assistant.find_by_id(session[:user_id]) if session[:user_id]
     end
 
+    def types
+      ["Normal", "Fire", "Water", "Electric", "Grass", "Ice", "Fighting", "Poison", "Ground", "Flying", "Psychic", "Bug", "Rock", "Ghost", "Dragon", "Steel", "Dark", "Fairy"]
+    end
+
   end
 
 end

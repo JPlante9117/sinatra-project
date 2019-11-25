@@ -11,10 +11,26 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="/stylesheets/main.css" />
+    <link rel="stylesheet" type = 'text/css' href="/stylesheets/main.css" />
   </head>
   <body>
     <div class="wrapper">
+      <a href='/'><input type='button' value='Home'></a>
+      <a href='/entries'><input type='button' value='All Entries'></a>
+      <% if !logged_in? %>
+        <a href='/login'><input type='button' value='Login'></a>
+        <a href='/signup'><input type='button' value='Create Account'></a>
+      <% else %>
+        <a href='/logout'><input type='button' value='Logout'></a>
+        <a href='/assistants/<%= current_user.slug %>'><input type='button' value='My Account'></a>
+        <a href='/entries/new'><input type='button' value='Make New Entry'></a>
+      <% end %>
+
+      <% if flash[:message] %>
+        <br><br>
+        <font color="red"><%= flash[:message]%></font>
+        <br><br>
+      <% end %>
 
         <%= yield %>
 

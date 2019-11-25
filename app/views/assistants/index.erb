@@ -1,0 +1,4 @@
+<h1>All Assistants</h1>
+<%Assistant.all.each do |as|%>
+    <a href='/assistants/<%=as.name.slug%>'><%= as.name%></a><br><br>
+<%end%>

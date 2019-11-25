@@ -1,0 +1,41 @@
+<h1>Edit Pokédex Entry</h1>
+
+<form action='/entries/<%=@entry.id%>' method='POST'>
+<h2>Subject Pokémon</h2>
+Please Select a Pokémon your entry applies to:<br><br>
+<select name='species_list' id='species_list'>
+<option value="select">Please Select From the Dropdown Menu</option>
+<option value="select">New Pokémon(Please fill form below!)</option>
+<% Pokemon.all.each do |poke|%>
+    <option value="<%=poke.id%>" <%='selected' if @entry.pokemon.id == poke.id%>><%=poke.species%></option>
+<%end%>
+</select>
+<br><br>
+If you've discovered a new Pokémon, please fill out all you know:<br>
+<h3>New Pokémon Form</h3>
+    <label for="species">Species Name:</label>
+    <input type='text' name='species' id='pokemon_species' placeholder='Ex: Pikachu'/><br><br>
+    
+    
+        <label for='type1'>Primary Type:</label>
+    <select name='type1' input='type1'>
+        <%types.each do |type|%>
+            <option value='<%=type%>'><%=type%></option>
+        <%end%>
+    </select>
+    <br><br>
+    <label for='type2'>Secondary Type:</label>
+    <select name='type2' input='type2'>
+        <option value='None'>None</option>
+        <%types.each do |type|%>
+            <option value='<%=type%>'><%=type%></option>
+        <%end%>
+    </select>
+    <br>
+    <h2>Entry Content:</h2>
+    <textarea type='text' rows="20" cols="134" name='entry[content]' id='entry'><%=@entry.content%></textarea>
+    <br>
+    <input type='hidden' id='hidden' name='_method' value="PATCH">
+    <input type='submit' name='submit' id='submit' value='Edit Entry'>
+</form>
+<br>

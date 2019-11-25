@@ -1,0 +1,11 @@
+<h1>Entry #<%=@entry.id%></h1>
+<h2>Regarding <%= @entry.pokemon.species %> <a href='/pokemon/<%= @entry.pokemon.slug %>'><input type='button' value='See <%= @entry.pokemon.species %>'></a></h2>
+<p><%=@entry.content%></p>
+<br>
+<% if logged_in? && current_user == @entry.assistant%>
+    <a href='/entries/<%=@entry.id%>/edit'><input type='button' value='Edit Entry'></a>
+    <form action='/entries/<%=@entry.id %>/delete' method='POST'>
+        <input type='hidden' name='_method' value='delete' id='hidden'>
+        <input type='submit' value='Delete Entry' id='delete_button'>
+    </form>
+<% end %>

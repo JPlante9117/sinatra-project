@@ -13,7 +13,8 @@ class PokemonController < ApplicationController
     get '/pokemon/:slug' do
         #searches for pokemon by specific name
         if logged_in?
-            #find specific pokemon
+            binding.pry
+            @pokemon = Pokemon.find_by_slug(params[:slug])
             erb :'/pokemon/show'
         else
             flash[:message] = "I'm sorry, our research is quite confidential! Please prove you work for us by signing in!"
@@ -22,8 +23,6 @@ class PokemonController < ApplicationController
     end
 
     helpers do
-        def types
-            ["Normal", "Fire", "Water", "Electric", "Grass", "Ice", "Fighting", "Poison", "Ground", "Flying", "Psychic", "Bug", "Rock", "Ghost", "Dragon", "Steel", "Dark", "Fairy"]
-        end
+        
     end
 end

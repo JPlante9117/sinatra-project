@@ -1,0 +1,24 @@
+<h1>Hello <%= @assistant.name %></h1>
+<br><br>
+Here is a list of all of your tweets!
+<table>
+    <tr>
+        <th>
+            Entry
+        </th>
+        <th>
+            Subject Pokémon
+        </th>
+    </tr>
+    <% @assistant.entries.each do |entry| %>
+        <tr>
+        <td>
+        <%binding.pry%>
+            <a href='/entries/<%= entry.id %>'>Entry #<%= entry.id %></a>
+        </td>
+        <td>
+            <a href='/pokemon/<%= entry.pokemon.species %>'><%= entry.pokemon.species %></a>
+        </td>
+        </tr>
+    <% end %>
+</table>
