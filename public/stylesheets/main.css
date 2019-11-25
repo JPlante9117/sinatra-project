@@ -1,4 +1,5 @@
 @media screen {
+
   /* --- Reset Styles --- */
   * {
     list-style: none;
@@ -81,6 +82,85 @@
     margin-top: 20px;
     padding-top: 20px;
   }
+
+  table#allpokes {
+    text-align: center;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    -icab-border-radius: 10px;
+    -o-border-radius: 10px;
+    border: 2px solid #FF1111;
+    background: #FF1111
+  }
+
+  table#allpokes th {
+    color:rgb(245, 255, 211);
+    width: 300px;
+    height: 45px;
+    font-size: xx-large;
+  }
+
+  table#allpokes td {
+    width: 300px;
+    height: 75px;
+    font-size: x-large;
+    background: rgb(245, 255, 211);
+  }
+
+  table#assistants {
+    text-align: center;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    -icab-border-radius: 10px;
+    -o-border-radius: 10px;
+    border: 2px solid rgb(99, 183, 223);
+    background: rgb(99, 183, 223);
+  }
+
+  table#assistants th {
+    color:rgb(245, 255, 211);
+    width: 300px;
+    height: 45px;
+    font-size: xx-large;
+  }
+
+  table#assistants td {
+    width: 300px;
+    height: 75px;
+    font-size: x-large;
+    background: rgb(245, 255, 211);
+  }
+
+  table#allentries {
+    text-align: center;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    -icab-border-radius: 10px;
+    -o-border-radius: 10px;
+    border: 2px solid  rgb(116, 167, 118);
+    background: rgb(116, 167, 118);
+  }
+
+  table#allentries th {
+    color:rgb(245, 255, 211);
+    width: 300px;
+    height: 45px;
+    font-size: xx-large;
+  }
+
+  table#allentries td {
+    width: 300px;
+    height: 75px;
+    font-size: x-large;
+    background: rgb(245, 255, 211);
+  }
+
 }
 
 @media screen and (max-width: 600px) {
@@ -112,19 +192,4 @@
     font-size: 18px;
     line-height: 24px;
   }
-}
-
-
-table#allpokes {
-  text-align: center;
-  font: x-small sans-serif;
-  color: black;
-  line-height: 1.5em;
-  direction: ltr;
-  margin-inline-start: auto;
-  margin-inline-end: auto;
-  font-size: 100%;
-  -webkit-border-radius: 10px;
-  border: 2px solid #FF1111;
-  background: #faf5e8;
 }

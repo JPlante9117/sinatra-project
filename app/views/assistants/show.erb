@@ -1,7 +1,6 @@
-<h1>Hello <%= @assistant.name %></h1>
+<h1>Assistant <%= @assistant.name %>'s Entries</h1>
 <br><br>
-Here is a list of all of your tweets!
-<table>
+<table id='assistants'>
     <tr>
         <th>
             Entry
@@ -13,7 +12,6 @@ Here is a list of all of your tweets!
     <% @assistant.entries.each do |entry| %>
         <tr>
         <td>
-        <%binding.pry%>
             <a href='/entries/<%= entry.id %>'>Entry #<%= entry.id %></a>
         </td>
         <td>

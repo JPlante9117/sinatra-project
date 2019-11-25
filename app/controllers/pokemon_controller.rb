@@ -13,7 +13,6 @@ class PokemonController < ApplicationController
     get '/pokemon/:slug' do
         #searches for pokemon by specific name
         if logged_in?
-            binding.pry
             @pokemon = Pokemon.find_by_slug(params[:slug])
             erb :'/pokemon/show'
         else

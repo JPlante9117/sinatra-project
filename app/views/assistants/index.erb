@@ -1,4 +1,29 @@
 <h1>All Assistants</h1>
+<br>
+<table id="assistants">
+<tr>
+    <th>
+        Assistant I.D.
+    </th>
+    <th>
+        Assistant Name
+    </th>
+    <th>
+        Entries Written
+    </th>
+</tr>
 <%Assistant.all.each do |as|%>
-    <a href='/assistants/<%=as.name.slug%>'><%= as.name%></a><br><br>
+    
+    <tr>
+        <td>
+            <a href='/assistants/<%=as.slug%>'><%= as.id %></a>
+        </td>
+        <td>
+            <a href='/assistants/<%=as.slug%>'><%= as.name%></a>
+        </td>
+        <td>
+            <a href='/assistants/<%=as.slug%>'><%= as.entries.count%></a>
+        </td>
+    </tr>
 <%end%>
+</table>

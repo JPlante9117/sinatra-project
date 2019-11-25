@@ -1,9 +1,11 @@
-<table>
+<h1>All Entries</h1>
+<br>
+<table id="allentries">
     <th>
         Entry Number
     </th>
     <th>
-        Subject Pokemon
+        Subject Pokémon
     </th>
     <th>
         Author
@@ -11,7 +13,7 @@
     <%Entry.all.each do |entry|%>
         <tr>
             <td>
-                <a href='/entries/<%=entry.id%>'>Entry Number #<%=entry.id%></a>
+                <a href='/entries/<%=entry.id%>'>Entry #<%=entry.id%></a>
             </td>
             <td>
                 <a href='/pokemon/<%=entry.pokemon.slug%>'><%=entry.pokemon.species.capitalize%></a>
