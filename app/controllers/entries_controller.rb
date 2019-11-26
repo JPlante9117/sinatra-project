@@ -80,7 +80,7 @@ class EntriesController < ApplicationController
             @entry = Entry.find_by_id(params[:id])
             if current_user == @entry.assistant
                 erb :'/entries/edit'
-            elsif current_user !- @entry.assistant
+            elsif current_user != @entry.assistant
                 flash[:message] = "Sorry, please refrain from trying to edit entries that aren't yours."
                 redirect "/entries/#{@entry.id}"
             end
