@@ -15,18 +15,25 @@
   </head>
   <body>
     <div class="wrapper">
-      <a href='/'><button>Home</button></a>
-      <% if !logged_in? %>
-        <a href='/login'><button>Login</button></a>
-        <a href='/signup'><button>Create Account</button></a>
-      <% else %>
-        <a href='/pokemon'><button>View All Pokémon</button></a>
-        <a href='/assistants'><button>View All Assistants</button></a>
-        <a href='/entries'><button>View All Entries</button></a>
-        <a href='/entries/new'><button>Make New Entry</button></a>
-        <a href='/assistants/<%= current_user.slug %>'><button>My Account</button></a>
-        <a href='/logout'><button>Logout</button></a>
-      <% end %>
+      
+      <table id="header">
+        <tr>
+          <td><a href='/'><img src="https://i.ibb.co/N7jGTVb/home.png" alt="Home" class="rounded-corners"/></a></td>
+          <% if !logged_in? %>
+            <td><a href='/login'><img src="https://i.ibb.co/T4F4N2x/login.png" alt="login" class="rounded-corners"></a></td>
+            <td><a href='/signup'><img src="https://i.ibb.co/5sXD7NB/signup.png" alt="signup" class="rounded-corners"></a></td>
+            </tr>
+            </table>
+          <% else %>
+            <td><a href='/pokemon'><img src="https://i.ibb.co/5s0YxW5/allpokes.png" alt="allpokes" class="rounded-corners"></a></td>
+            <td><a href='/assistants'><img src="https://i.ibb.co/TbVdpC7/allassists.png" alt="allassists" class="rounded-corners"></a></td>
+            <td><a href='/entries'><img src="https://i.ibb.co/6BfMncK/Comic2.png" alt="Comic2" class="rounded-corners"></a></td>
+            <td><a href='/entries/new'><img src="https://i.ibb.co/Y7f3SWM/newentry.png" alt="newentry" class="rounded-corners"></a></td>
+            <td><a href='/assistants/<%= current_user.slug %>'><img src="https://i.ibb.co/c6nxjxq/myaccount.png" alt="myaccount" class="rounded-corners"></a></td>
+            <td><a href='/logout'><img src="https://i.ibb.co/Lh3fMtP/logout.png" alt="logout" class="rounded-corners"></a></td>
+            </tr>
+            </table>
+          <% end %>
 
       <% if flash[:message] %>
         <br><br>
@@ -37,7 +44,7 @@
         <%= yield %>
 
       <footer class="branding">
-        <small>&copy; 2019 <strong>SinatraProject</strong></small>
+        <small>&copy; 2019 <strong>Pokémon Database</strong></small>
       </footer>
     </div>
 

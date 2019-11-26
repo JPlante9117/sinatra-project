@@ -52,7 +52,7 @@ class AssistantsController < ApplicationController
             assistant = Assistant.find_by(name: params[:name])
             if assistant && assistant.authenticate(params[:password])
                 session[:user_id] = assistant.id
-                redirect '/entries'
+                redirect '/'
             else
                 flash[:message] = "Couldn't find an account with that information! Sign up today!"
                 redirect '/signup'
