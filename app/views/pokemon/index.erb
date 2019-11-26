@@ -12,6 +12,10 @@
         </th>
     </tr>
 <% Pokemon.all.each do |poke|%>
+<% color1 = "black" %>
+<% color1 = "white" if poke.type1 == "Dark" %>
+<% color2 = "black" %>
+<% color2 = "white" if poke.type2 == "Dark" %>
     <tr>
         <td>
             <%= poke.id %>
@@ -20,15 +24,15 @@
             <a href='/pokemon/<%=poke.slug%>'><%=poke.species%><br><br>
         </td>
         <% if poke.type2 != "None"%>
-            <td>
-                <%= poke.type1 %>
+            <td style="background: <%= poke.coloredtable1 %>;">
+                <font color="<%=color1%>"><%= poke.type1 %></font>
             </td>
-            <td>
-                <%= poke.type2 %>
+            <td style="background: <%= poke.coloredtable2 %>;">
+                <font color="<%=color2%>"><%= poke.type2 %></font>
             </td>
         <% else %>
-            <td colspan='2'>
-                <%= poke.type1 %>
+            <td colspan='2' style="background: <%= poke.coloredtable1 %>;">
+                <font color="<%=color1%>"><%= poke.type1 %></font>
             </td>
         <% end %>
     </tr>
