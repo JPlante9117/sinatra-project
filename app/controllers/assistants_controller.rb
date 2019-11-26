@@ -53,6 +53,10 @@ class AssistantsController < ApplicationController
             if assistant && assistant.authenticate(params[:password])
                 session[:user_id] = assistant.id
                 redirect '/'
+
+            elsif assistant
+                flash[:message] = "Name and password do not match, please try again"
+                redirect '/login'
             else
                 flash[:message] = "Couldn't find an account with that information! Sign up today!"
                 redirect '/signup'

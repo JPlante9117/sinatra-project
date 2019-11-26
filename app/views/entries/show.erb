@@ -1,11 +1,24 @@
 <h1>Entry #<%=@entry.id%></h1>
 <h2>Regarding <%= @entry.pokemon.species %> <a href='/pokemon/<%= @entry.pokemon.slug %>'><img src="https://i.ibb.co/DVjhVK0/visit.png" alt="visit" class="rounded-corners"></a></h2>
+<table id="entry">
+<tr>
+<td>
 <p><%=@entry.content%></p>
-<br>
+</td>
+</tr>
+</table>
 <% if logged_in? && current_user == @entry.assistant%>
-    <a href='/entries/<%=@entry.id%>/edit'><img src="https://i.ibb.co/M5dYSfj/edit.png" alt="edit" class="rounded-corners"></a>
-    <form action='/entries/<%=@entry.id %>/delete' method='POST'>
-        <input type='hidden' name='_method' value='delete' id='hidden'>
-        <input type='submit' id="delete" value="">
-    </form>
+    <table style="width: 100%;">
+    <tr>
+    <td>
+        <a href='/entries/<%=@entry.id%>/edit'><img src="https://i.ibb.co/M5dYSfj/edit.png" alt="edit" class="rounded-corners" style=""></a>
+    </td>
+    <td>
+        <form action='/entries/<%=@entry.id %>/delete' method='POST'>
+            <input type='hidden' name='_method' value='delete' id='hidden'>
+            <input type='submit' id="delete" value="">
+        </form>
+    </td>
+    </tr>
+    </table>
 <% end %>

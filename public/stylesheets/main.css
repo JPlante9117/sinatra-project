@@ -160,6 +160,25 @@
     font-size: x-large;
     background: rgb(245, 255, 211);
   }
+  
+  table#entry {
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    -icab-border-radius: 10px;
+    -o-border-radius: 10px;
+    border: 2px solid  rgb(143, 136, 70);
+    background: rgb(143, 136, 70);
+    width: 100%;
+  }
+
+  table#entry td {
+    border-radius: 10px;
+    font-size: large;
+    background: rgb(245, 255, 211);
+    padding: 10px;
+  }
 
   table#header {
     width: 100%;
@@ -174,14 +193,28 @@
     border-radius: 12px;
   }
 
-  input#delete {
-    background: url(https://i.ibb.co/F6X3Wyr/delete.png);
+  input[type='submit']{
     border-radius: 12px;
     border: 2px solid rgb(0, 0, 0);
     display: block;
-    height: 36px;
+    height: 35px;
     width: 92px;
     cursor: pointer;
+  }
+  input#delete {
+    background: url(https://i.ibb.co/F6X3Wyr/delete.png);
+  }
+
+  input#new {
+    background: url(https://i.ibb.co/xS5F6cM/createentry.png);
+  }
+
+  input#login {
+    background: url(https://i.ibb.co/T4F4N2x/login.png);
+  }
+
+  input#signup {
+    background: url(https://i.ibb.co/5sXD7NB/signup.png);
   }
 
 }
