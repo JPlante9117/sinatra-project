@@ -1,27 +1,21 @@
 <h1><%=@pokemon.species%></h1>
 <h2>
-    Primary Type: <%= @pokemon.type1 %>
+    Primary Type: <a href="/pokemon/types/<%= @pokemon.type1.downcase %>"><%= @pokemon.type1 %></a>
     <%if @pokemon.type2 != "None" && @pokemon.type1 != @pokemon.type2%>
-        <br>Secondary Type: <%= @pokemon.type2 %>
+        <br>Secondary Type: <a href="/pokemon/types/<%= @pokemon.type2.downcase %>"><%= @pokemon.type2 %></a>
     <% end %>
 </h2>
-<table id='allpokes'>
-    <tr>
-        <th>
-            Entry
-        </th>
-        <th>
-            Author
-        </th>
-    </tr>
-    <% @pokemon.entries.each do |entry| %>
+<p/><p/>
+<h1>All Entries For <%=@pokemon.species%> <a href='/pokemon/<%= @pokemon.slug %>'><img src="https://i.ibb.co/DVjhVK0/visit.png" alt="visit" class="rounded-corners"></a></h1>
+
+<% @entries.each do |entry| %>
+    <table id="entry">
         <tr>
         <td>
-            <a href='/entries/<%= entry.id %>'>Entry #<%= entry.id %></a>
+        <p><a href="/entries/<%=entry.id%>"><h3 style="text-align: left;">Entry #<%=entry.id%></h3></a></p>
+        <p><%=entry.content%></p>
+        <p style="text-align: right;">~<a href="/assistants/<%=entry.assistant.slug%>"><%=entry.assistant.name%></a></p>
         </td>
-        <td>
-            <a href='/assistants/<%= entry.assistant.slug %>'><%= entry.assistant.name %></a>
-        </td>
-        </tr>
-    <% end %>
-</table>
+    </table>
+    <p/><p/>
+<% end %>

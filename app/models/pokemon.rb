@@ -13,6 +13,10 @@ class Pokemon < ActiveRecord::Base
         self.species.gsub(" ", "-").downcase
     end
 
+    def self.types
+      @@types
+    end
+
     def coloredtable1
         type = @@types.find {|type| type == self.type1}
         case type

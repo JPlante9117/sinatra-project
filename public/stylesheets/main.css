@@ -20,6 +20,22 @@
     line-height: 18px;
   }
 
+  a:link {
+    text-decoration: none;
+  }
+  
+  a:visited {
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  a:active {
+    text-decoration: underline;
+  }
+
   .wrapper {
     background: #fff;
     -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
@@ -83,8 +99,7 @@
     padding-top: 20px;
   }
 
-  table#allpokes {
-    width: 100%;
+  table {
     text-align: center;
     border-radius: 10px;
     -moz-border-radius: 10px;
@@ -92,6 +107,10 @@
     -khtml-border-radius: 10px;
     -icab-border-radius: 10px;
     -o-border-radius: 10px;
+    width: 100%;
+  }
+
+  table#allpokes {
     border: 2px solid #FF1111;
     background: #FF1111
   }
@@ -111,14 +130,6 @@
   }
 
   table#assistants {
-    width: 100%;
-    text-align: center;
-    border-radius: 10px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -khtml-border-radius: 10px;
-    -icab-border-radius: 10px;
-    -o-border-radius: 10px;
     border: 2px solid rgb(99, 183, 223);
     background: rgb(99, 183, 223);
   }
@@ -138,14 +149,6 @@
   }
 
   table#allentries {
-    width: 100%;
-    text-align: center;
-    border-radius: 10px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -khtml-border-radius: 10px;
-    -icab-border-radius: 10px;
-    -o-border-radius: 10px;
     border: 2px solid  rgb(116, 167, 118);
     background: rgb(116, 167, 118);
   }
@@ -165,15 +168,8 @@
   }
   
   table#entry {
-    border-radius: 10px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -khtml-border-radius: 10px;
-    -icab-border-radius: 10px;
-    -o-border-radius: 10px;
     border: 2px solid  rgb(143, 136, 70);
     background: rgb(143, 136, 70);
-    width: 100%;
   }
 
   table#entry td {
@@ -181,6 +177,44 @@
     font-size: large;
     background: rgb(245, 255, 211);
     padding: 10px;
+  }
+
+  table#types {
+    border: 2px solid  rgb(148, 128, 131);
+    background: rgb(148, 128, 131);
+  }
+
+  table#types th {
+    color:rgb(245, 255, 211);
+    width: 300px;
+    height: 75px;
+    font-size: xx-large;
+  }
+
+  table#types td {
+    width: 300px;
+    height: 50px;
+    font-size: x-large;
+    background: rgb(245, 255, 211);
+  }
+
+  table#alltypes {
+    border: 2px solid  rgb(148, 128, 131);
+    background: rgb(148, 128, 131)
+  }
+
+  table#alltypes th {
+    color:rgb(245, 255, 211);
+    width: 300px;
+    height: 45px;
+    font-size: xx-large;
+  }
+
+  table#alltypes td {
+    width: 300px;
+    height: 75px;
+    font-size: x-large;
+    background: rgb(245, 255, 211);
   }
 
   table#header {

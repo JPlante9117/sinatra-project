@@ -1,0 +1,20 @@
+<h1>All Types</h1>
+<br>
+<table id="alltypes">
+    <th>
+        Type
+    </th>
+    <th>
+        Number Of Pokémon
+    </th>
+    <%Pokemon.types.each do |type|%>
+        <tr>
+            <td>
+                <a href='/pokemon/types/<%=type.downcase%>'><%=type%></a>
+            </td>
+            <td>
+                <%=Pokemon.all.select { |poke| poke.type1 == type || poke.type2 == type}.count%>
+            </td>
+        </tr>
+    <%end%>
+</table>

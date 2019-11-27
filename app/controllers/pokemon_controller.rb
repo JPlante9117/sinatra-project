@@ -10,18 +10,35 @@ class PokemonController < ApplicationController
         end
     end
 
-    get '/pokemon/:slug' do
-        #searches for pokemon by specific name
+    get '/pokemon/types' do
         if logged_in?
-            @pokemon = Pokemon.find_by_slug(params[:slug])
-            erb :'/pokemon/show'
+            erb :'/pokemon/types_index'
         else
             flash[:message] = "I'm sorry, our research is quite confidential! Please prove you work for us by signing in!"
             redirect '/login'
         end
     end
 
-    helpers do
-        
+    get '/pokemon/types/:slug' do
+        if logged_in?
+            @type = params[:slug]
+            @pokemon = Pokemon.all.select {|poke| poke.type1 == @type.capitalize || poke.type2 == @type.capitalize}
+            erb :'/pokemon/types_show'
+        else
+            flash[:message] = "I'm sorry, our research is quite confidential! Please prove you work for us by signing in!"
+            redirect '/login'
+        end
+    end
+
+    get '/pokemon/:slug' do
+        #searches for pokemon by specific name
+        if logged_in?
+            @pokemon = Pokemon.find_by_slug(params[:slug])
+            @entries = @pokemon.entries
+            erb :'/pokemon/show'
+        else
+            flash[:message] = "I'm sorry, our research is quite confidential! Please prove you work for us by signing in!"
+            redirect '/login'
+        end
     end
 end

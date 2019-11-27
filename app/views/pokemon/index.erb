@@ -25,14 +25,14 @@
         </td>
         <% if poke.type2 != "None"%>
             <td style="background: <%= poke.coloredtable1 %>;">
-                <font color="<%=color1%>"><%= poke.type1 %></font>
+                <a href="/pokemon/types/<%=poke.type1.downcase%>"><font color="<%=color1%>"><%= poke.type1 %></font></a>
             </td>
             <td style="background: <%= poke.coloredtable2 %>;">
-                <font color="<%=color2%>"><%= poke.type2 %></font>
+                <a href="/pokemon/types/<%=poke.type2.downcase%>"><font color="<%=color2%>"><%= poke.type2 %></font></a>
             </td>
         <% else %>
             <td colspan='2' style="background: <%= poke.coloredtable1 %>;">
-                <font color="<%=color1%>"><%= poke.type1 %></font>
+                <a href="/pokemon/types/<%=poke.type1.downcase%>"><font color="<%=color1%>"><%= poke.type1 %></font></a>
             </td>
         <% end %>
     </tr>
