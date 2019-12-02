@@ -24,12 +24,16 @@ class EntriesController < ApplicationController
                     flash[:message] = "Please be sure to assign this entry to a pokemon"
                     redirect '/entries/new'
                 else
+                    if params[:type2] == params[:type1]
+                        params[:type2] = "None"
+                    end
                     if params[:entry][:content] == ""
                         flash[:message] = "Please refrain from creating blank entries"
                         redirect '/entries/new'
                     else
                         @entry = current_user.entries.build(content: params[:entry][:content])
                         if Pokemon.find_by(species: params[:species])
+                            flash[:message] = "We assigned this entry to the existing Pokémon #{params[:species]}"
                             @entry.pokemon = Pokemon.find_by(species: params[:species])
                         else
                             @entry.pokemon = @entry.build_pokemon(species: params[:species], type1: params[:type1], type2: params[:type2])
@@ -48,8 +52,13 @@ class EntriesController < ApplicationController
                     redirect '/entries/new'
                 else
                     @entry = current_user.entries.build(content: params[:entry][:content])
-                    if Pokemon.find_by_id(params[:species_list])
-                        @entry.pokemon = Pokemon.find_by_id(params[:species_list])
+                    if pokemon.types.include?(params[:type1]) && pokemon.types.include?(params[:type2])
+                        flash[:message] = "We assigned this entry to the existing Pokémon #{params[:species]}"
+                        @entry.pokemon.species = params[:species]
+                    else
+                        flash[:message] = "You listed an existing Pokémon with incorrect types. If this is a new variant, please 
+                        enter again with '- {form here}' after the name so we may differentiate it."
+                        redirect "/entries/#{@entry.id}/edit"
                     end
                     if @entry.save
                         redirect "/entries/#{@entry.id}"
@@ -98,18 +107,29 @@ class EntriesController < ApplicationController
                     flash[:message] = "Please refrain from creating blank entries"
                     redirect "/entries/#{@entry.id}/edit"
                 else
-                    @entry.update(params[:entry])
-                    if params.key?("species_list")
+                    @entry.update(content: params[:entry][:content])
+                    if params[:species_list] != "select"
                         @entry.pokemon.species = Pokemon.find_by(species: params[:species_list])
                     else
                         unless @entry.pokemon.species == params[:species]
-                            if Pokemon.find_by(species: params[:species])
-                                @entry.pokemon.species = params[:species]
+                            if params[:type2] == params[:type1]
+                                params[:type2] = "None"
+                            end
+                            if pokemon = Pokemon.find_by(species: params[:species])
+                                if pokemon.types.include?(params[:type1]) && pokemon.types.include?(params[:type2])
+                                    flash[:message] = "We assigned this entry to the existing Pokémon #{params[:species]}"
+                                    @entry.pokemon.species = params[:species]
+                                else
+                                    flash[:message] = "You listed an existing Pokémon with incorrect types. If this is a new variant, please 
+                                    enter again with '- {form here}' after the name so we may differentiate it."
+                                    redirect "/entries/#{@entry.id}/edit"
+                                end
                             else
                                 @entry.pokemon = @entry.build_pokemon(species: params[:species], type1: params[:type1], type2: params[:type2])
                             end
                         end
                     end
+                    @entry.save
                 end
             else
                 flash[:message] = "Please refrain from trying to edit entries that are not yours."

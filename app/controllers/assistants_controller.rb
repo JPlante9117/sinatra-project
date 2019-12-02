@@ -26,6 +26,9 @@ class AssistantsController < ApplicationController
             if params[:name] == "" || params[:password] == ""
                 flash[:message] = "Please make sure each section is properly filled in"
                 redirect '/signup'
+            elsif Assistant.find_by(name: params[:name])
+                flash[:message] = "There is already an employee by that name, please select another name, or sign in if you already have an account"
+                redirect '/signup'
             else
                 @assistant = Assistant.new(:name => params[:name], :password => params[:password])
                 @assistant.save

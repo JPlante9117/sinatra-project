@@ -13,6 +13,10 @@ class Pokemon < ActiveRecord::Base
         self.species.gsub(" ", "-").downcase
     end
 
+    def types
+      ["#{self.type1}", "#{self.type2}"]
+    end
+
     def self.types
       @@types
     end

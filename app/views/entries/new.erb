@@ -5,6 +5,7 @@
 Please Select a Pokémon your entry applies to:<br><br>
 <select name='species_list' id='species_list'>
 <option value="select">Please Select From the Dropdown Menu</option>
+<option value="select">New Pokémon(Please fill form below!)</option>
 <% Pokemon.all.each do |poke|%>
     <option value="<%=poke.id%>"><%=poke.species%></option>
 <%end%>

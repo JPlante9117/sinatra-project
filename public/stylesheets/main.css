@@ -254,6 +254,10 @@
     background: url(https://i.ibb.co/5sXD7NB/signup.png);
   }
 
+  input#edit {
+    background: url(https://i.ibb.co/M5dYSfj/edit.png);
+  }
+
 }
 
 @media screen and (max-width: 600px) {
