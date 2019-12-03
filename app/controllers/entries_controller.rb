@@ -21,7 +21,7 @@ class EntriesController < ApplicationController
         if logged_in?
             unless params.key?("species_list") && params[:species_list] != "select"
                 if params[:species] == ""
-                    flash[:message] = "Please be sure to assign this entry to a pokemon"
+                    flash[:message] = "Please be sure to assign this entry to a Pokémon"
                     redirect '/entries/new'
                 else
                     if params[:type2] == params[:type1]

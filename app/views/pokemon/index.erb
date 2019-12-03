@@ -16,25 +16,27 @@
 <% color1 = "white" if poke.type1 == "Dark" %>
 <% color2 = "black" %>
 <% color2 = "white" if poke.type2 == "Dark" %>
-    <tr>
-        <td>
-            <%= poke.id %>
-        </td>
-        <td>
-            <a href='/pokemon/<%=poke.slug%>'><%=poke.species%><br><br>
-        </td>
-        <% if poke.type2 != "None"%>
-            <td style="background: <%= poke.coloredtable1 %>;">
-                <a href="/pokemon/types/<%=poke.type1.downcase%>"><font color="<%=color1%>"><%= poke.type1 %></font></a>
+    <% unless poke.entries.empty? %>
+        <tr>
+            <td>
+                <%= poke.id %>
             </td>
-            <td style="background: <%= poke.coloredtable2 %>;">
-                <a href="/pokemon/types/<%=poke.type2.downcase%>"><font color="<%=color2%>"><%= poke.type2 %></font></a>
+            <td>
+                <a href='/pokemon/<%=poke.slug%>'><%=poke.species%><br><br>
             </td>
-        <% else %>
-            <td colspan='2' style="background: <%= poke.coloredtable1 %>;">
-                <a href="/pokemon/types/<%=poke.type1.downcase%>"><font color="<%=color1%>"><%= poke.type1 %></font></a>
-            </td>
-        <% end %>
-    </tr>
+            <% if poke.type2 != "None"%>
+                <td style="background: <%= poke.coloredtable1 %>;">
+                    <a href="/pokemon/types/<%=poke.type1.downcase%>"><font color="<%=color1%>"><%= poke.type1 %></font></a>
+                </td>
+                <td style="background: <%= poke.coloredtable2 %>;">
+                    <a href="/pokemon/types/<%=poke.type2.downcase%>"><font color="<%=color2%>"><%= poke.type2 %></font></a>
+                </td>
+            <% else %>
+                <td colspan='2' style="background: <%= poke.coloredtable1 %>;">
+                    <a href="/pokemon/types/<%=poke.type1.downcase%>"><font color="<%=color1%>"><%= poke.type1 %></font></a>
+                </td>
+            <% end %>
+        </tr>
+    <% end %>
 <%end%>
 </table>

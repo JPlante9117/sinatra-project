@@ -7,15 +7,24 @@
 </h2>
 <p/><p/>
 <h1>All Entries For <%=@pokemon.species%></h1>
-
-<% @entries.each do |entry| %>
+<% if @entries.empty?%>
     <table id="entry">
         <tr>
         <td>
-        <p><a href="/entries/<%=entry.id%>"><h3 style="text-align: left;">Entry #<%=entry.id%></h3></a></p>
-        <p><%=entry.content%></p>
-        <p style="text-align: right;">~<a href="/assistants/<%=entry.assistant.slug%>"><%=entry.assistant.name%></a></p>
+            <h3>Sorry, there are currently no entries for this Pokémon!</h3>
         </td>
     </table>
     <p/><p/>
+<% else %>
+    <% @entries.each do |entry| %>
+        <table id="entry">
+            <tr>
+            <td>
+            <p><a href="/entries/<%=entry.id%>"><h3 style="text-align: left;">Entry #<%=entry.id%></h3></a></p>
+            <p><%=entry.content%></p>
+            <p style="text-align: right;">~<a href="/assistants/<%=entry.assistant.slug%>"><%=entry.assistant.name%></a></p>
+            </td>
+        </table>
+        <p/><p/>
+    <% end %>
 <% end %>
