@@ -7,7 +7,17 @@ class Pokemon < ActiveRecord::Base
     extend Slugifiable::ClassMethods
 
     @@types = ["Normal", "Fire", "Water", "Electric", "Grass", "Ice", "Fighting", "Poison", "Ground", "Flying", "Psychic", "Bug", "Rock", "Ghost", "Dragon", "Steel", "Dark", "Fairy"]
+    
+    def initialize(params)
+      super
+      compare_types
+    end
 
+    def compare_types
+      if self.type1 == self.type2
+        self.type2 = "None"
+      end
+    end
 
     def slug
         self.species.gsub(" ", "-").downcase
@@ -22,8 +32,7 @@ class Pokemon < ActiveRecord::Base
     end
 
     def coloredtable1
-        type = @@types.find {|type| type == self.type1}
-        case type
+        case self.type1
         when "Normal"
           "rgb(226, 226, 226)"
         when "Fire"
@@ -64,8 +73,7 @@ class Pokemon < ActiveRecord::Base
       end
 
       def coloredtable2
-        type = @@types.find {|type| type == self.type2}
-        case type
+        case self.type2
         when "Normal"
           "rgb(226, 226, 226)"
         when "Fire"

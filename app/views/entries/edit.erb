@@ -19,7 +19,7 @@ If you've discovered a new Pokémon, please fill out all you know:<br>
     
         <label for='type1'>Primary Type:</label>
     <select name='type1' input='type1'>
-        <%types.each do |type|%>
+        <%Pokemon.types.each do |type|%>
             <option value='<%=type%>'><%=type%></option>
         <%end%>
     </select>
@@ -27,7 +27,7 @@ If you've discovered a new Pokémon, please fill out all you know:<br>
     <label for='type2'>Secondary Type:</label>
     <select name='type2' input='type2'>
         <option value='None'>None</option>
-        <%types.each do |type|%>
+        <%Pokemon.types.each do |type|%>
             <option value='<%=type%>'><%=type%></option>
         <%end%>
     </select>
