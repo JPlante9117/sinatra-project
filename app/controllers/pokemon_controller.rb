@@ -13,7 +13,7 @@ class PokemonController < ApplicationController
     get '/pokemon/types/:slug' do
         redirect_if_logged_out
         @type = params[:slug]
-        @pokemon = Pokemon.all.select {|poke| poke.type1 == @type.capitalize || poke.type2 == @type.capitalize}
+        @pokemon = Pokemon.where(type1: @type.capitalize).or(Pokemon.where(type2: @type.capitalize))
         erb :'/pokemon/types_show'
     end
 
