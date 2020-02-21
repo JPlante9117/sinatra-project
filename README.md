@@ -12,6 +12,12 @@ Additionally, the database needs to be initialized. Run `rake db:migrate` to cre
 
 In order to run this program, run `shotgun` in your command line and visit the listed localhost page.
 
+## DEMO
+
+Below is a video demonstrating the usage of the application.
+
+https://www.youtube.com/watch?v=_hQEKJhnHZI&t
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/JPlante9117/sinatra-project. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
